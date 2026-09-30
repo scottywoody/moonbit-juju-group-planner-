@@ -1,0 +1,29 @@
+{
+  "version": "juju-planner-request/v1",
+  "members": [
+    {
+      "id": "u_ava",
+      "availability": [{ "date": "2026-10-10", "startMinute": 1080, "endMinute": 1260 }],
+      "interests": ["ai", "robotics"]
+    },
+    {
+      "id": "u_ben",
+      "availability": [{ "date": "2026-10-10", "startMinute": 1140, "endMinute": 1260 }],
+      "interests": ["ai", "finance"]
+    }
+  ],
+  "options": [
+    {
+      "id": "campus-ai-talk",
+      "window": { "date": "2026-10-10", "startMinute": 1140, "endMinute": 1200 },
+      "interest": "ai",
+      "venue": { "name": "大学城校区", "commuteMinutes": [12, null] }
+    }
+  ],
+  "rules": {
+    "minParticipants": 2,
+    "requiredMemberIds": ["u_ava"],
+    "requireEveryone": false,
+    "maxTravelMinutes": 45
+  }
+}

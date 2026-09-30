@@ -1,0 +1,5 @@
+import {
+  "scottywoody/moonplan",
+}
+
+pkgtype(kind: "executable")

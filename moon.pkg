@@ -1,0 +1,5 @@
+// Pure recommendation logic. Keeping this package dependency-free makes it
+// easy to reuse from a future JavaScript or WeChat adapter.
+import {
+  "scottywoody/moonplan" @planner,
+} for "test"

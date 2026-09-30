@@ -1,0 +1,27 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  moonbit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MoonBit
+        shell: bash
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Verify formatting and types
+        run: |
+          moon fmt
+          git diff --exit-code
+          moon check --deny-warn
+      - name: Run tests on supported targets
+        run: |
+          moon test --deny-warn
+          moon build --target js
+      - name: Validate JavaScript integration contract
+        run: node integration/juju-planner-contract.test.js
